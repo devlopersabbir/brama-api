@@ -1,0 +1,10 @@
+{
+  "name": "nahid",
+  "description": "nahid api",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "nodemon src/server.ts",
+    "build": "tsc",
+    "start": "dist/src/server.js"
+  }
+}
