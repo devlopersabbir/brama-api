@@ -12,10 +12,7 @@ const Middle = () => {
             <div className="logo">
               <h1>
                 <Link to="/home" className=" d-flex align-items-center gap-2">
-                  <i class="ri-car-line"></i>
-                  <span>
-                    BRAMA <br /> LOGO
-                  </span>
+                  <img src="/logo.png" alt="logo" />
                 </Link>
               </h1>
             </div>
@@ -23,15 +20,12 @@ const Middle = () => {
 
           <Col lg="6" md="6" sm="4">
             <div className="header__location d-flex align-items-center gap-2">
-              <span>
-                <i class="ri-earth-line"></i>
-              </span>
-              <div className="header__location-content">
-                <h4>
-                  {" "}
-                  Bangladesh Refrigation & Airconditioning Merchents Association
-                </h4>
-              </div>
+              <h4
+                className="header__location-content"
+                style={{ fontSize: 25, fontWeight: 600, textAlign: "center" }}
+              >
+                BANGLADESH REFRIGERATION & AIRCONDITIONING MERCHANTS ASSOCIATION
+              </h4>
             </div>
           </Col>
           <Col
