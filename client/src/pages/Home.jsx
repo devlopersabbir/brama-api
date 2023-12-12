@@ -1,8 +1,6 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
 import HeroSlider from "../components/UI/HeroSlider";
 import Helmet from "../components/Helmet/Helmet";
-
 import { Container, Row, Col } from "reactstrap";
 import FindCarForm from "../components/UI/FindCarForm";
 import AboutSection from "../components/UI/AboutSection";
@@ -11,17 +9,28 @@ import carData from "../assets/data/carData";
 import CarItem from "../components/UI/CarItem";
 import BecomeDriverSection from "../components/UI/BecomeDriverSection";
 import Testimonial from "../components/UI/Testimonial";
-
+import axios from "axios";
 import BlogList from "../components/UI/BlogList";
 
 const Home = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const getPost = async () => {
+      try {
+        const { data } = await axios.get("http://localhost:5000/api/v1/posts");
+        setPosts(data);
+      } catch (error) {
+        console.log("Error", error);
+      }
+    };
+    getPost();
+  }, []);
   return (
     <Helmet title="Home">
       {/* ============= hero section =========== */}
       <section className="p-0 hero__slider-section">
         <HeroSlider />
-
- 
       </section>
       {/* =========== about section ================ */}
       <AboutSection />
@@ -46,10 +55,10 @@ const Home = () => {
               <h6 className="section__subtitle">Come with</h6>
               <h2 className="section__title">Hot Offers</h2>
             </Col>
-
-            {carData.slice(0, 6).map((item) => (
-              <CarItem item={item} key={item.id} />
-            ))}
+            {posts &&
+              posts
+                .slice(0, 6)
+                .map((item) => <CarItem item={item} key={item.uuid} />)}
           </Row>
         </Container>
       </section>

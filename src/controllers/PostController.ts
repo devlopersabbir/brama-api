@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { Post } from "../entity";
+import slug from "slug";
 
 class PostController {
   /**
@@ -29,12 +30,14 @@ class PostController {
    */
   public static async store(req: Request, res: Response) {
     const { title, description, image } = req.body;
-
+    const slugs = slug(title, "-");
+    if (!slugs) return res.status(400).json({ message: "Fail to build slugs" });
     try {
       const post = Post.create({
         title,
         description,
         image,
+        slugs,
       });
       await post.save();
       res.status(201).json({

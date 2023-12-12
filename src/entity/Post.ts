@@ -6,6 +6,9 @@ export class Post extends BaseModel {
   @Column({ nullable: true })
   title: string;
 
+  @Column({ unique: true, type: "text" })
+  slugs: string;
+
   @Column({ type: "text" })
   description: string;
 
