@@ -41,18 +41,13 @@ const Footer = () => {
             <div className="logo footer__logo">
               <h1>
                 <Link to="/home" className=" d-flex align-items-center gap-2">
-                  <i class="ri-car-line"></i>
-                  <span>
-                    Brama <br /> Service
-                  </span>
+                  <img src="/logo.png" alt="logo" />
                 </Link>
               </h1>
             </div>
             <p className="footer__logo-content">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Consequuntur, distinctio, itaque reiciendis ab cupiditate harum ex
-              quam veniam, omnis expedita animi quibusdam obcaecati mollitia?
-              Delectus et ad illo recusandae temporibus?
+              BANGLADESH REFRIGERATION & AIRCONDITIONING MERCHANTS ASSOCIATION
+              (BRAMA)
             </p>
           </Col>
 
